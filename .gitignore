@@ -36,3 +36,8 @@ out/
 ### Nodes ###
 node
 node_modules
+package-lock.json
+
+### bundle ###
+bundle.js
+bundle.js.map
