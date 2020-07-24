@@ -1,0 +1,22 @@
+{
+  "name": "showitself",
+  "version": "0.1.0",
+  "description": "This site introduces itself",
+  "author": "Byoungjoon Im",
+  "bugs": {
+    "url": "https://github.com/ByoungJoonIm/Show-Itself/issues"
+  },
+  "homepage": "https://github.com/ByoungJoonIm/Show-Itself",
+  "dependencies": {
+    "react": "~16.13.1",
+    "react-dom": "~16.13.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.0",
+    "babel-loader": "^8.1.0",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  }
+}
