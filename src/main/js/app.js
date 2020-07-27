@@ -148,6 +148,12 @@ class BoxContainerList extends React.Component{
 
 class ToolbarWrapper extends React.Component{
 	render(){
+		const style = makeStyles((theme) => ({
+			menus: {
+				marginLeft: 0,
+			},
+		}));
+		
 		return(
 			<AppBar position="relative">
         		<Toolbar>
@@ -155,6 +161,18 @@ class ToolbarWrapper extends React.Component{
 					<Typography variant="h6" color="inherit" noWrap>bjdev</Typography>
 					</Button>
 				</Toolbar>
+				
+				<div className={style.menus}>
+				<Button>
+					<Typography variant="h6" color="inherit" noWrap>menu1</Typography>
+				</Button>
+				<Button>
+					<Typography variant="h6" color="inherit" noWrap>menu2</Typography>
+				</Button>
+				<Button>
+					<Typography variant="h6" color="inherit" noWrap>menu3</Typography>
+				</Button>
+				</div>
 			</AppBar>
 		)
 	}	
