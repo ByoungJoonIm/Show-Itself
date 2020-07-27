@@ -21,6 +21,7 @@ class App extends React.Component{
 	render(){
 		return(
 			<div>
+				<CssBaseline />
 				<ToolbarWrapper />
 				<HeroUnitWrapper />
 				<Album />
@@ -172,84 +173,108 @@ class ToolbarWrapper extends React.Component{
 	}	
 }
 
-class Album extends React.Component{
-	render(){	
-			const useStyles = makeStyles((theme) => ({
-  cardGrid: {
-    paddingTop: theme.spacing(8),
-    paddingBottom: theme.spacing(8),
-  },
-  card: {
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  cardMedia: {
-    paddingTop: '56.25%', // 16:9
-  },
-  cardContent: {
-    flexGrow: 1,
-  },
-}));
-
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-		const classes = useStyles;
+class CardWrapper extends React.Component{
+	constructor(props){
+		super(props);
+		this.handleMouseEnter = this.handleMouseEnter.bind(this);
+		this.handleMouseOut = this.handleMouseOut.bind(this);
 		
+		this.state = {isHover : false};
+	}
+	
+	handleMouseEnter(e){
+		e.preventDefault(e);
+		this.setState({isHover : true});
+	}
+	
+	handleMouseOut(e){
+		e.preventDefault(e);
+		this.setState({isHover : false});
+	}
+	
+	render(){
+		const style = makeStyles((theme) => ({
+			card: {
+				display: 'block',
+			},
+			cardMedia: {
+				height: 0,
+				paddingTop: '56.25%', // 16:9
+			},
+			cardContent: {
+				flexGrow: 1,
+			},	
+		}));
 		
+		const hoverContent = (this.state.isHover) ?
+			<Card className={style.card}>
+				<CardContent className={style.cardContent}>
+					<Typography gutterBottom variant="h5" component="h2">
+					hover...
+					</Typography>
+					<Typography>
+					This is a descriptions
+					aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+					bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+					ccccccccccccccccccccccccccccccccccccccccccc
+					ddddddddddddddddddddddddddddddddddddddddddd
+					eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+					</Typography>
+				</CardContent>
+				<CardActions>
+					<Button size="small" color="primary">
+					-> see detail
+					</Button>
+				</CardActions>
+			</Card>
+			:
+			<Card className={style.card}>
+				<CardMedia
+					className={style.cardMedia}
+					image="https://cdn0.iconfinder.com/data/icons/round-arrows-1/134/small_left_red-512.png"
+					title="Image title"
+				/>
+				<CardContent className={style.cardContent}>
+					<Typography gutterBottom variant="h5" component="h2">
+					Tech name
+					</Typography>
+					
+				</CardContent>
+			</Card>
 		
 		return(
-			    <React.Fragment>
-      <CssBaseline />
-      <main>
-        {/* Hero unit */}
-        
+			<div
+				onMouseEnter = {this.handleMouseEnter}
+				onMouseOut = {this.handleMouseOut}
+			>
+				{hoverContent}
+			</div>
+		)
+	}
+}
 
+class Album extends React.Component{
+	render(){	
+		const styles = makeStyles((theme) => ({
+			cardGrid: {
+				paddingTop: theme.spacing(8),
+				paddingBottom: theme.spacing(8),
+			},
+		}));
 
-
-        <Container className={classes.cardGrid} maxWidth="lg">
+		const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+		return(
+		
+        <Container className={styles.cardGrid} maxWidth="lg">
           {/* End hero unit */}
           <Grid container spacing={4}>
             {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={3}>
-                <Card className={classes.card}>
-                  <CardMedia
-                    className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
-                    title="Image title"
-                  />
-                  <CardContent className={classes.cardContent}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Heading
-                    </Typography>
-                    <Typography>
-                      This is a media card. You can use this section to describe the content.
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small" color="primary">
-                      View
-                    </Button>
-                    <Button size="small" color="primary">
-                      Edit
-                    </Button>
-                  </CardActions>
-                </Card>
+              <Grid item key={card} xs={12} sm={6} md={3} zeroMinWidth>
+				<CardWrapper />                
               </Grid>
             ))}
           </Grid>
         </Container>
-      </main>
-
-
-
-
-
-
-
-
-
-
-    </React.Fragment>
 		)
 	}
 
