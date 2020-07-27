@@ -22,6 +22,7 @@ class App extends React.Component{
 		return(
 			<div>
 				<ToolbarWrapper />
+				<HeroUnitWrapper />
 				<Album />
 				{/*
 				<BoxContainerList />
@@ -174,13 +175,6 @@ class ToolbarWrapper extends React.Component{
 class Album extends React.Component{
 	render(){	
 			const useStyles = makeStyles((theme) => ({
-				heroContent: {
-					backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6),
-  },
-  heroButtons: {
-    marginTop: theme.spacing(4),
-  },
   cardGrid: {
     paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(8),
@@ -196,10 +190,6 @@ class Album extends React.Component{
   cardContent: {
     flexGrow: 1,
   },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6),
-  },
 }));
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -212,33 +202,7 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
       <CssBaseline />
       <main>
         {/* Hero unit */}
-        <div className={classes.heroContent}>
-          <Container maxWidth="sm">
-            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-              Album layout
-            </Typography>
-            <Typography variant="h5" align="center" color="textSecondary" paragraph>
-              Something short and leading about the collection below—its contents, the creator, etc.
-              Make it short and sweet, but not too short so folks don&apos;t simply skip over it
-              entirely.
-            </Typography>
-            <div className={classes.heroButtons}>
-              <Grid container spacing={2} justify="center">
-                <Grid item>
-                  <Button variant="contained" color="primary">
-                    Main call to action
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button variant="outlined" color="primary">
-                    Secondary action
-                  </Button>
-                </Grid>
-              </Grid>
-            </div>
-          </Container>
-        </div>
-
+        
 
 
 
@@ -289,6 +253,30 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 		)
 	}
 
+}
+
+class HeroUnitWrapper extends React.Component{
+	render(){	
+		const styles = makeStyles((theme) => ({
+			heroContent: {
+				backgroundColor: theme.palette.background.paper,
+    			padding: theme.spacing(8, 0, 6),
+  			},
+		}));
+		
+		return (
+			<div className={styles.heroContent}>
+				<Container maxWidth="sm">
+					<Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+					Show itself
+					</Typography>
+					<Typography variant="h5" align="center" color="textSecondary" paragraph>
+					This site introduces itself. I'm trying to use current technologies for web over full stack. It describes how it works and what technoloes used.
+					</Typography>
+				</Container>
+			</div>
+		);
+	}
 }
 
 class FooterWrapper extends React.Component{
