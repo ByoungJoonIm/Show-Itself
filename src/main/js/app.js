@@ -37,13 +37,6 @@ class App extends React.Component{
 				<ToolbarWrapper />
 				<HeroUnitWrapper />
 				<ContentWrapper cardContents={this.state.cardContents} />
-				{/*
-				<BoxContainerList />
-				<HoverEventExample />
-				<Button variant="contained" color="primary">
-					Button test
-				</Button>*/}
-				
 				<FooterWrapper />
 			</div>
 		)
@@ -161,7 +154,7 @@ class CardWrapper extends React.Component{
 					<h1 style ={{
 						textAlign: 'center',
 						verticalAlign: 'middle'
-					}}>{this.props.cardContent.cardName}</h1>
+					}}>{this.props.cardContent.name}</h1>
 				</div>
 			</div>
 		
@@ -190,8 +183,6 @@ class ContentWrapper extends React.Component{
 			},
 		}));
 
-		const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-		
 		const cardContents = this.props.cardContents.map(cardContent =>
 			<Grid item key={cardContent._links.self.href} xs={12} sm={6} md={4} lg={3} zeroMinWidth>
 				<CardWrapper cardContent={cardContent}/>
@@ -203,21 +194,7 @@ class ContentWrapper extends React.Component{
         <Container className={styles.cardGrid} maxWidth="lg">
           {/* End hero unit */}
           <Grid container spacing={4}>
-				{cardContents}
-			
-				{/*
-				            {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4} lg={3} zeroMinWidth>
-				 <CardWrapper />
-           
-              </Grid>
-     
-            ))}
-			 */}
-				{/*
-				<CardTempWrapper />
-				 */}
-				
+				{cardContents}				
           </Grid>
         </Container>
 		)
