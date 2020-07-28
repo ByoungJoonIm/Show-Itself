@@ -193,50 +193,15 @@ class CardWrapper extends React.Component{
 	}
 	
 	render(){
-		const style = makeStyles((theme) => ({
-			card: {
-				display: 'block',
-			},
-			cardMedia: {
-				height: 0,
-				paddingTop: '56.25%', // 16:9
-			},
-			cardContent: {
-				flexGrow: 1,
-			},	
-		}));
+		const divstyle = {
+					width: '270px',
+					height: '270px',
+					border: '1px solid black'
+				};
 		
 		const hoverContent = (this.state.isHover) ?
-			<Card className={style.card} style = {{
-					width: '270px',
-					height: '270px',
-					background: 'orange'
-				}}>
-				<CardContent className={style.cardContent}>
-					<Typography gutterBottom variant="h5" component="h2">
-					hover...
-					</Typography>
-					<Typography>
-					This is a descriptions
-					aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-					bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-					ccccccccccccccccccccccccccccccccccccccccccc
-					ddddddddddddddddddddddddddddddddddddddddddd
-					eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-					</Typography>
-				</CardContent>
-				<CardActions>
-					<Button size="small" color="primary">
-					-> see detail
-					</Button>
-				</CardActions>
-			</Card>
-			:
-			<Card className={style.card} style = {{
-					width: '270px',
-					height: '270px',
-					background: 'orange'
-				}}>
+			<Card style = {divstyle}>
+				{/*
 				<CardMedia
 					className={style.cardMedia}
 					image="https://cdn0.iconfinder.com/data/icons/round-arrows-1/134/small_left_red-512.png"
@@ -248,7 +213,36 @@ class CardWrapper extends React.Component{
 					</Typography>
 					
 				</CardContent>
+				*/}
 			</Card>
+			
+			:
+			<div style = {divstyle}>
+				<div style = {{
+					background: 'blue',
+					height: '200px',
+					width: '270px',
+					padding: '5px 5px 5px 5px'
+				}}>
+					<div style ={{
+						background: 'green',
+						height: '190px',
+						width: '260px',
+					}}>
+						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png" style={{
+							height: '190px',
+							width: '260px'	
+						}}/>
+					</div>
+				</div>
+				<div style = {{
+					background: 'pink',
+					height: '70px',
+					width: '270px'
+				}}>
+				</div>
+			</div>
+			
 		
 		return(
 			<div
@@ -261,26 +255,6 @@ class CardWrapper extends React.Component{
 				}}
 			>
 				{hoverContent}
-			</div>
-		)
-	}
-}
-
-class CardTempWrapper extends React.Component{
-	render(){
-		const styles = makeStyles((theme) => ({
-			divTemp : {
-				height : 300,
-				width : 300,
-			},
-		}));
-		return(
-			<div style={{
-				width: '300px',
-				height: '300px',
-				background: "orange"
-			}}>
-				<h1>111111111111111</h1>
 			</div>
 		)
 	}
