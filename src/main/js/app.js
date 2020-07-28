@@ -177,7 +177,7 @@ class CardWrapper extends React.Component{
 	constructor(props){
 		super(props);
 		this.handleMouseEnter = this.handleMouseEnter.bind(this);
-		this.handleMouseOut = this.handleMouseOut.bind(this);
+		this.handleMouseLeave = this.handleMouseLeave.bind(this);
 		
 		this.state = {isHover : false};
 	}
@@ -187,7 +187,7 @@ class CardWrapper extends React.Component{
 		this.setState({isHover : true});
 	}
 	
-	handleMouseOut(e){
+	handleMouseLeave(e){
 		e.preventDefault(e);
 		this.setState({isHover : false});
 	}
@@ -207,7 +207,11 @@ class CardWrapper extends React.Component{
 		}));
 		
 		const hoverContent = (this.state.isHover) ?
-			<Card className={style.card}>
+			<Card className={style.card} style = {{
+					width: '270px',
+					height: '270px',
+					background: 'orange'
+				}}>
 				<CardContent className={style.cardContent}>
 					<Typography gutterBottom variant="h5" component="h2">
 					hover...
@@ -228,7 +232,11 @@ class CardWrapper extends React.Component{
 				</CardActions>
 			</Card>
 			:
-			<Card className={style.card}>
+			<Card className={style.card} style = {{
+					width: '270px',
+					height: '270px',
+					background: 'orange'
+				}}>
 				<CardMedia
 					className={style.cardMedia}
 					image="https://cdn0.iconfinder.com/data/icons/round-arrows-1/134/small_left_red-512.png"
@@ -245,9 +253,34 @@ class CardWrapper extends React.Component{
 		return(
 			<div
 				onMouseEnter = {this.handleMouseEnter}
-				onMouseOut = {this.handleMouseOut}
+				onMouseLeave = {this.handleMouseLeave}
+				style = {{
+					width: '270px',
+					height: '270px',
+					background: 'orange'
+				}}
 			>
 				{hoverContent}
+			</div>
+		)
+	}
+}
+
+class CardTempWrapper extends React.Component{
+	render(){
+		const styles = makeStyles((theme) => ({
+			divTemp : {
+				height : 300,
+				width : 300,
+			},
+		}));
+		return(
+			<div style={{
+				width: '300px',
+				height: '300px',
+				background: "orange"
+			}}>
+				<h1>111111111111111</h1>
 			</div>
 		)
 	}
@@ -269,8 +302,15 @@ class Album extends React.Component{
           {/* End hero unit */}
           <Grid container spacing={4}>
             {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={3} zeroMinWidth>
-				<CardWrapper />                
+              <Grid item key={card} xs={12} sm={6} md={4} lg={3} zeroMinWidth>
+				 <CardWrapper />
+			
+				{/*
+			 */}
+				{/*
+				<CardTempWrapper />
+				 */}
+				                
               </Grid>
             ))}
           </Grid>
