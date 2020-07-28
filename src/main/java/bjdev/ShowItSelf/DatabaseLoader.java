@@ -21,5 +21,9 @@ public class DatabaseLoader implements CommandLineRunner{
 	public void run(String... strings) throws Exception{
 		this.repository.save(new CardContent("React", "It used for frontend"));
 		this.repository.save(new CardContent("Spring", "It used for backend"));
+		
+		for (int i = 0; i < 10; i++) {
+			this.repository.save(new CardContent("Data" + (i + 1), "Description" + (i + 1)));
+		}
 	}
 }
