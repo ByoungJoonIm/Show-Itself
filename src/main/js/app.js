@@ -107,31 +107,22 @@ class CardWrapper extends React.Component{
 	}
 	
 	render(){
-		const divstyle = {
+		const frameStyle = {
 					width: '270px',
 					height: '270px',
 					border: '1px solid black'
 				};
 		
-		const hoverContent = (this.state.isHover) ?
-			<Card style = {divstyle}>
-				{/*
-				<CardMedia
-					className={style.cardMedia}
-					image="https://cdn0.iconfinder.com/data/icons/round-arrows-1/134/small_left_red-512.png"
-					title="Image title"
-				/>
-				<CardContent className={style.cardContent}>
-					<Typography gutterBottom variant="h5" component="h2">
-					Tech name
-					</Typography>
-					
-				</CardContent>
-				*/}
-			</Card>
-			
-			:
-			<div style={divstyle}>
+		const hoveredContent =
+			<div style = {frameStyle}>
+				<p style ={{
+					wordWrap: 'break-word',
+					textAlign: 'center'
+				}}>It used for frontend.
+				</p>	
+			</div>
+		const nonHoveredContent = 
+			<div style={frameStyle}>
 				<div style = {{
 					background: 'blue',
 					height: '200px',
@@ -152,11 +143,15 @@ class CardWrapper extends React.Component{
 				<div style = {{
 					background: 'pink',
 					height: '70px',
-					width: '270px'
+					width: '270px',
+					position: 'absolute'
 				}}>
+					<h1 style ={{
+						textAlign: 'center',
+						verticalAlign: 'middle'
+					}}>React</h1>
 				</div>
 			</div>
-			
 		
 		return(
 			<div
@@ -168,7 +163,7 @@ class CardWrapper extends React.Component{
 					background: 'orange'
 				}}
 			>
-				{hoverContent}
+				{(this.state.isHover) ? hoveredContent : nonHoveredContent}
 			</div>
 		)
 	}
