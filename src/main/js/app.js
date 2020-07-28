@@ -1,7 +1,8 @@
 'use strict';
 
-import React from 'react';
-import ReactDOM from 'react-dom';
+const React = require('react');
+const ReactDOM = require('react-dom');
+const client = require('./client');
 
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
@@ -18,13 +19,24 @@ import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 
 class App extends React.Component{
+	constructor(props){
+		super(props);
+		this.state = {cardContents: []};
+	}
+	
+	componentDidMount(){
+		client({method: 'GET', path: '/api/cardContents'}).done(response => {
+			this.setState({cardContents: response.entity._embedded.cardContents});
+		});
+	}
+	
 	render(){
 		return(
 			<div>
 				<CssBaseline />
 				<ToolbarWrapper />
 				<HeroUnitWrapper />
-				<ContentWrapper />
+				<ContentWrapper cardContents={this.state.cardContents} />
 				{/*
 				<BoxContainerList />
 				<HoverEventExample />
@@ -118,7 +130,7 @@ class CardWrapper extends React.Component{
 				<p style ={{
 					wordWrap: 'break-word',
 					textAlign: 'center'
-				}}>It used for frontend.
+				}}>{this.props.cardContent.description}
 				</p>	
 			</div>
 		const nonHoveredContent = 
@@ -149,7 +161,7 @@ class CardWrapper extends React.Component{
 					<h1 style ={{
 						textAlign: 'center',
 						verticalAlign: 'middle'
-					}}>React</h1>
+					}}>{this.props.cardContent.cardName}</h1>
 				</div>
 			</div>
 		
@@ -179,23 +191,33 @@ class ContentWrapper extends React.Component{
 		}));
 
 		const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+		
+		const cardContents = this.props.cardContents.map(cardContent =>
+			<Grid item key={cardContent._links.self.href} xs={12} sm={6} md={4} lg={3} zeroMinWidth>
+				<CardWrapper cardContent={cardContent}/>
+			</Grid>
+		);
+		
 		return(
 		
         <Container className={styles.cardGrid} maxWidth="lg">
           {/* End hero unit */}
           <Grid container spacing={4}>
-            {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4} lg={3} zeroMinWidth>
-				 <CardWrapper />
+				{cardContents}
 			
 				{/*
+				            {cards.map((card) => (
+              <Grid item key={card} xs={12} sm={6} md={4} lg={3} zeroMinWidth>
+				 <CardWrapper />
+           
+              </Grid>
+     
+            ))}
 			 */}
 				{/*
 				<CardTempWrapper />
 				 */}
-				                
-              </Grid>
-            ))}
+				
           </Grid>
         </Container>
 		)
