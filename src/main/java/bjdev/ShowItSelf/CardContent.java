@@ -10,13 +10,13 @@ import javax.persistence.Id;
 @Entity
 public class CardContent {
 	private @Id @GeneratedValue Long id;
-	private String cardName;
+	private String name;
 	private String description;
 	
 	private CardContent() {}
 	
-	public CardContent(String cardName, String description) {
-		this.cardName = cardName;
+	public CardContent(String name, String description) {
+		this.name = name;
 		this.description = description;
 	}
 	
@@ -28,13 +28,13 @@ public class CardContent {
 			return false;
 		CardContent cardContent = (CardContent) o;
 		return Objects.equals(id, cardContent.id) &&
-				Objects.equals(cardName, cardContent.cardName) &&
+				Objects.equals(name, cardContent.name) &&
 				Objects.equals(description, cardContent.description);
 	}
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, cardName, description);
+		return Objects.hash(id, name, description);
 	}
 
 	public Long getId() {
@@ -45,12 +45,12 @@ public class CardContent {
 		this.id = id;
 	}
 
-	public String getCardName() {
-		return cardName;
+	public String getName() {
+		return name;
 	}
 
-	public void setCardName(String cardName) {
-		this.cardName = cardName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getDescription() {
@@ -63,7 +63,7 @@ public class CardContent {
 
 	@Override
 	public String toString() {
-		return "CardContent [id=" + id + ", cardName=" + cardName + ", description=" + description + "]";
+		return "CardContent [id=" + id + ", name=" + name + ", description=" + description + "]";
 	}
 	
 	
