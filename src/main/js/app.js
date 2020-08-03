@@ -86,13 +86,22 @@ class ToolbarWrapper extends React.Component {
 class HeroUnitWrapper extends React.Component {
 	render() {
 		return (
+			<HeroUnit title="Show itself"
+				description="This site introduces itself. I'm trying to use current technologies for web over full stack. It describes how it works and what technoloes used." />
+		)
+	}
+}
+
+class HeroUnit extends React.Component {
+	render() {
+		return (
 			<div className={styles.heroContent}>
 				<Container maxWidth="sm">
 					<Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-						Show itself
+						{this.props.title}
 					</Typography>
 					<Typography variant="h5" align="center" color="textSecondary" paragraph>
-						This site introduces itself. I'm trying to use current technologies for web over full stack. It describes how it works and what technoloes used.
+						{this.props.description}
 					</Typography>
 				</Container>
 			</div>
