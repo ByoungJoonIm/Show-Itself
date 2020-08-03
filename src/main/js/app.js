@@ -51,7 +51,7 @@ class App extends React.Component {
 				<CssBaseline />
 				<ToolbarWrapper />
 				<HeroUnitWrapper />
-				<ContentWrapper cardContents={this.state.cardContents} />
+				<TechnologiesWrapper cardContents={this.state.cardContents} />
 				<FooterWrapper />
 			</div>
 		)
@@ -191,6 +191,16 @@ class CardWrapper extends React.Component {
 	}
 }
 
+class TechnologiesWrapper extends React.Component {
+	render(){
+		return(
+			<ContentWrapper title="Technologies"
+			description="Try to hover on each cards."
+			cardContents={this.props.cardContents} />
+		)
+	}
+}
+
 class ContentWrapper extends React.Component {
 	render() {
 		const cardContents = this.props.cardContents.map(cardContent =>
@@ -200,9 +210,10 @@ class ContentWrapper extends React.Component {
 		);
 
 		return (
-
 			<Container className={styles.cardGrid} maxWidth="lg">
-				{/* End hero unit */}
+				<HeroUnit title={this.props.title}
+					description={this.props.description}
+				/>
 				<Grid container spacing={4}>
 					{cardContents}
 				</Grid>
