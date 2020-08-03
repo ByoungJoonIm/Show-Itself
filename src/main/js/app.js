@@ -52,6 +52,7 @@ class App extends React.Component {
 				<ToolbarWrapper />
 				<HeroUnitWrapper />
 				<TechnologiesWrapper cardContents={this.state.cardContents} />
+				<TechniquesWrapper cardContents={this.state.cardContents} />
 				<FooterWrapper />
 			</div>
 		)
@@ -195,6 +196,16 @@ class TechnologiesWrapper extends React.Component {
 	render(){
 		return(
 			<ContentWrapper title="Technologies"
+			description="Try to hover on each cards."
+			cardContents={this.props.cardContents} />
+		)
+	}
+}
+
+class TechniquesWrapper extends React.Component {
+	render(){
+		return(
+			<ContentWrapper title="Techniques"
 			description="Try to hover on each cards."
 			cardContents={this.props.cardContents} />
 		)
