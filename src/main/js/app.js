@@ -36,13 +36,17 @@ const styles = makeStyles((theme) => ({
 class App extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { cardContents: [] };
+		this.state = { technologyCards: [], techniqueCards: [] };
 	}
 
 	componentDidMount() {
-		client({ method: 'GET', path: '/api/cardContents' }).done(response => {
-			this.setState({ cardContents: response.entity._embedded.cardContents });
+		client({ method: 'GET', path: '/api/technologyCards' }).done(response => {
+			this.setState({ technologyCards: response.entity._embedded.technologyCards });
 		});
+		client({ method: 'GET', path: '/api/techniqueCards' }).done(response => {
+			this.setState({ techniqueCards: response.entity._embedded.techniqueCards });
+		});
+		
 	}
 
 	render() {
@@ -51,8 +55,8 @@ class App extends React.Component {
 				<CssBaseline />
 				<ToolbarWrapper />
 				<HeroUnitWrapper />
-				<TechnologiesWrapper cardContents={this.state.cardContents} />
-				<TechniquesWrapper cardContents={this.state.cardContents} />
+				<TechnologiesWrapper cardContents={this.state.technologyCards} />
+				<TechniquesWrapper cardContents={this.state.techniqueCards} />
 				<FooterWrapper />
 			</div>
 		)
