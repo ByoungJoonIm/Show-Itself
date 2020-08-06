@@ -10,20 +10,32 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class DatabaseLoader implements CommandLineRunner{
-	private final CardContentRepository repository;
+	private final TechnologyCardRepository technologyCardRepository;
+	private final TechniqueCardRepository techniqueCardRepository;
 	
 	@Autowired
-	public DatabaseLoader(CardContentRepository repository) {
-		this.repository = repository;
+	public DatabaseLoader(TechnologyCardRepository technologyCardRepository, TechniqueCardRepository techniqueCardRepository) {
+		this.technologyCardRepository = technologyCardRepository;
+		this.techniqueCardRepository = techniqueCardRepository;
 	}
 	
 	@Override
 	public void run(String... strings) throws Exception{
-		this.repository.save(new CardContent("React", "It used for frontend"));
-		this.repository.save(new CardContent("Spring", "It used for backend"));
+		//technologies
+		this.technologyCardRepository.save(new TechnologyCard("React", "It used for frontend"));
+		this.technologyCardRepository.save(new TechnologyCard("Spring", "It used for backend"));
 		
 		for (int i = 0; i < 10; i++) {
-			this.repository.save(new CardContent("Data" + (i + 1), "Description" + (i + 1)));
+			this.technologyCardRepository.save(new TechnologyCard("dummy Data" + (i + 1), "dummy Description" + (i + 1)));	//dummy
 		}
+		
+		//techniques
+		this.techniqueCardRepository.save(new TechniqueCard("REST API", "It is designed by REST API"));
+		this.techniqueCardRepository.save(new TechniqueCard("SCALABLE", "It is designed for horizontal scalable"));
+		
+		for (int i = 0; i < 10; i++) {
+			this.techniqueCardRepository.save(new TechniqueCard("dummy Data" + (i + 1), "dummy Description" + (i + 1)));	//dummy
+		}
+		
 	}
 }
