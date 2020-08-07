@@ -22,7 +22,7 @@ public class DatabaseLoader implements CommandLineRunner{
 	@Override
 	public void run(String... strings) throws Exception{
 		//technologies
-		this.technologyCardRepository.save(new TechnologyCard("React", "It used for frontend"));
+		this.technologyCardRepository.save(new TechnologyCard("React", "It used for frontend", "react-icon"));
 		this.technologyCardRepository.save(new TechnologyCard("Spring", "It used for backend"));
 		
 		for (int i = 0; i < 10; i++) {
