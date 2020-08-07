@@ -23,7 +23,7 @@ public class DatabaseLoader implements CommandLineRunner{
 	public void run(String... strings) throws Exception{
 		//technologies
 		this.technologyCardRepository.save(new TechnologyCard("React", "It used for frontend", "react-icon"));
-		this.technologyCardRepository.save(new TechnologyCard("Spring", "It used for backend"));
+		this.technologyCardRepository.save(new TechnologyCard("Spring", "It used for backend", "spring"));
 		
 		for (int i = 0; i < 10; i++) {
 			this.technologyCardRepository.save(new TechnologyCard("dummy Data" + (i + 1), "dummy Description" + (i + 1)));	//dummy
@@ -31,7 +31,7 @@ public class DatabaseLoader implements CommandLineRunner{
 		
 		//techniques
 		this.techniqueCardRepository.save(new TechniqueCard("REST API", "It is designed by REST API"));
-		this.techniqueCardRepository.save(new TechniqueCard("SCALABLE", "It is designed for horizontal scalable"));
+		this.techniqueCardRepository.save(new TechniqueCard("HATEOAS", "It is used for providing other links"));
 		
 		for (int i = 0; i < 10; i++) {
 			this.techniqueCardRepository.save(new TechniqueCard("dummy Data" + (i + 1), "dummy Description" + (i + 1)));	//dummy
