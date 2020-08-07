@@ -148,6 +148,10 @@ class CardWrapper extends React.Component {
 				}}>{this.props.cardContent.description}
 				</p>
 			</div>
+			
+		const imageURI = this.props.cardContent._links.iconImageLink ?
+							this.props.cardContent._links.iconImageLink.href:
+							"http://www.localhost:8080/api/iconImages/not-found"
 		const nonHoveredContent =
 			<div style={frameStyle}>
 				<div style={{
@@ -161,7 +165,8 @@ class CardWrapper extends React.Component {
 						height: '190px',
 						width: '260px',
 					}}>
-						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png" style={{
+					{/* follow url will be changed to rest api uri*/}
+						<img src={imageURI} style={{
 							height: '190px',
 							width: '260px'
 						}} />
