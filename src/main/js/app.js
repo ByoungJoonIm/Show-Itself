@@ -29,6 +29,46 @@ const styles = makeStyles((theme) => ({
 	},
 }));
 
+const cssStyles = {
+	frameStyle: {
+		width: '270px',
+		height: '270px',
+		border: '1px solid black'
+	},
+	hoveredCard: {
+		width: '270px',
+		height: '270px',
+		background: 'orange'
+	},
+	cardDiv: {
+		background: 'blue',
+		height: '200px',
+		width: '270px',
+		padding: '5px 5px 5px 5px'
+
+	},
+	cardImageDiv: {
+		background: 'green',
+		height: '190px',
+		width: '260px',
+
+	},
+	cardImage: {
+		height: '190px',
+		width: '260px'
+	},
+	cardNameDiv: {
+		background: 'pink',
+		height: '70px',
+		width: '270px',
+		position: 'absolute'
+	},
+	cardNameText: {
+		textAlign: 'center',
+		verticalAlign: 'middle'
+	},
+};
+
 class App extends React.Component {
 	constructor(props) {
 		super(props);
@@ -42,7 +82,7 @@ class App extends React.Component {
 		client({ method: 'GET', path: '/api/techniqueCards' }).done(response => {
 			this.setState({ techniqueCards: response.entity._embedded.techniqueCards });
 		});
-		
+
 	}
 
 	render() {
@@ -130,53 +170,27 @@ class CardWrapper extends React.Component {
 	}
 
 	render() {
-		const frameStyle = {
-			width: '270px',
-			height: '270px',
-			border: '1px solid black'
-		};
-
 		const hoveredContent =
-			<div style={frameStyle}>
+			<div style={cssStyles.frameStyle}>
 				<p style={{
 					wordWrap: 'break-word',
 					textAlign: 'center'
 				}}>{this.props.cardContent.description}
 				</p>
 			</div>
-			
+
 		const imageURI = this.props.cardContent._links.iconImageLink ?
-							this.props.cardContent._links.iconImageLink.href:
-							"http://www.localhost:8080/api/iconImages/not-found"
+			this.props.cardContent._links.iconImageLink.href :
+			"http://www.localhost:8080/api/iconImages/not-found"
 		const nonHoveredContent =
-			<div style={frameStyle}>
-				<div style={{
-					background: 'blue',
-					height: '200px',
-					width: '270px',
-					padding: '5px 5px 5px 5px'
-				}}>
-					<div style={{
-						background: 'green',
-						height: '190px',
-						width: '260px',
-					}}>
-						<img src={imageURI} style={{
-							height: '190px',
-							width: '260px'
-						}} />
+			<div style={cssStyles.frameStyle}>
+				<div style={cssStyles.cardDiv}>
+					<div style={cssStyles.cardImageDiv}>
+						<img src={imageURI} style={cssStyles.cardImage} />
 					</div>
 				</div>
-				<div style={{
-					background: 'pink',
-					height: '70px',
-					width: '270px',
-					position: 'absolute'
-				}}>
-					<h1 style={{
-						textAlign: 'center',
-						verticalAlign: 'middle'
-					}}>{this.props.cardContent.name}</h1>
+				<div style={cssStyles.cardNameDiv}>
+					<h1 style={cssStyles.cardNameText}>{this.props.cardContent.name}</h1>
 				</div>
 			</div>
 
@@ -184,11 +198,7 @@ class CardWrapper extends React.Component {
 			<div
 				onMouseEnter={this.handleMouseEnter}
 				onMouseLeave={this.handleMouseLeave}
-				style={{
-					width: '270px',
-					height: '270px',
-					background: 'orange'
-				}}
+				style={cssStyles.hoveredCard}
 			>
 				{(this.state.isHover) ? hoveredContent : nonHoveredContent}
 			</div>
@@ -197,21 +207,21 @@ class CardWrapper extends React.Component {
 }
 
 class TechnologiesWrapper extends React.Component {
-	render(){
-		return(
+	render() {
+		return (
 			<ContentWrapper title="Technologies"
-			description="Try to hover on each cards."
-			cardContents={this.props.cardContents} />
+				description="Try to hover on each cards."
+				cardContents={this.props.cardContents} />
 		)
 	}
 }
 
 class TechniquesWrapper extends React.Component {
-	render(){
-		return(
+	render() {
+		return (
 			<ContentWrapper title="Techniques"
-			description="Try to hover on each cards."
-			cardContents={this.props.cardContents} />
+				description="Try to hover on each cards."
+				cardContents={this.props.cardContents} />
 		)
 	}
 }
