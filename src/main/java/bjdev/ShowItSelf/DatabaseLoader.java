@@ -22,7 +22,7 @@ public class DatabaseLoader implements CommandLineRunner{
 	@Override
 	public void run(String... strings) throws Exception{
 		//technologies
-		this.technologyCardRepository.save(new TechnologyCard("React", "It used for frontend", "react-icon"));
+		this.technologyCardRepository.save(new TechnologyCard("React", "It used for frontend", "react"));
 		this.technologyCardRepository.save(new TechnologyCard("Spring", "It used for backend", "spring"));
 		
 		for (int i = 0; i < 10; i++) {
@@ -30,8 +30,8 @@ public class DatabaseLoader implements CommandLineRunner{
 		}
 		
 		//techniques
-		this.techniqueCardRepository.save(new TechniqueCard("REST API", "It is designed by REST API"));
-		this.techniqueCardRepository.save(new TechniqueCard("HATEOAS", "It is used for providing other links"));
+		this.techniqueCardRepository.save(new TechniqueCard("REST API", "It is designed by REST API", "rest"));
+		this.techniqueCardRepository.save(new TechniqueCard("HATEOAS", "It is used for providing other links", "hateoas"));
 		
 		for (int i = 0; i < 10; i++) {
 			this.techniqueCardRepository.save(new TechniqueCard("dummy Data" + (i + 1), "dummy Description" + (i + 1)));	//dummy
