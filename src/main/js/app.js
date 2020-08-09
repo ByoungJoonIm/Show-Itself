@@ -111,10 +111,13 @@ class ToolbarWrapper extends React.Component {
 							</Button>
 						</Grid>
 						<Grid item xs />
+						<Grid item xs />
+						<Grid item xs />
+						<Grid item xs />
 						<Grid item alignItems='center'>
-							<Button color="inherit">menu1</Button>
-							<Button color="inherit">menu2</Button>
-							<Button color="inherit">menu3</Button>
+							<Button color="inherit">Home</Button>
+							<Button color="inherit">Docs</Button>
+							<Button color="inherit">About me</Button>
 						</Grid>
 						<Grid item xs />
 					</Grid>
