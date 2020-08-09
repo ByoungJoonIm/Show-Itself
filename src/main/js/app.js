@@ -30,38 +30,38 @@ const styles = makeStyles((theme) => ({
 }));
 
 const cssStyles = {
-	frameStyle: {
+	cardContainer: {
 		width: '270px',
 		height: '270px',
-		border: '1px solid black'
 	},
-	hoveredCard: {
+	hoveredContainer:{
 		width: '270px',
 		height: '270px',
-		background: 'orange'
+		padding: '10px 10px 10px 10px'
+	},
+	hoveredText: {
+		width: '250px',
+		height: '250px',
+		wordWrap: 'break-word',
+		textAlign: 'center',
 	},
 	cardDiv: {
-		background: 'blue',
+		height: '200px',
+		width: '270px',
+	},
+	cardImageDiv: {
 		height: '200px',
 		width: '270px',
 		padding: '5px 5px 5px 5px'
-
-	},
-	cardImageDiv: {
-		background: 'green',
-		height: '190px',
-		width: '260px',
-
 	},
 	cardImage: {
 		height: '190px',
 		width: '260px'
 	},
 	cardNameDiv: {
-		background: 'pink',
 		height: '70px',
 		width: '270px',
-		position: 'absolute'
+		position: 'absolute',
 	},
 	cardNameText: {
 		textAlign: 'center',
@@ -171,19 +171,15 @@ class CardWrapper extends React.Component {
 
 	render() {
 		const hoveredContent =
-			<div style={cssStyles.frameStyle}>
-				<p style={{
-					wordWrap: 'break-word',
-					textAlign: 'center'
-				}}>{this.props.cardContent.description}
-				</p>
+			<div style={cssStyles.hoveredContainer}>
+				<div style={cssStyles.hoveredText}>{this.props.cardContent.description}</div>
 			</div>
 
 		const imageURI = this.props.cardContent._links.iconImageLink ?
 			this.props.cardContent._links.iconImageLink.href :
 			"http://www.localhost:8080/api/iconImages/not-found"
 		const nonHoveredContent =
-			<div style={cssStyles.frameStyle}>
+			<div>
 				<div style={cssStyles.cardDiv}>
 					<div style={cssStyles.cardImageDiv}>
 						<img src={imageURI} style={cssStyles.cardImage} />
@@ -198,7 +194,7 @@ class CardWrapper extends React.Component {
 			<div
 				onMouseEnter={this.handleMouseEnter}
 				onMouseLeave={this.handleMouseLeave}
-				style={cssStyles.hoveredCard}
+				style={cssStyles.cardContainer}
 			>
 				{(this.state.isHover) ? hoveredContent : nonHoveredContent}
 			</div>
