@@ -34,7 +34,7 @@ const cssStyles = {
 		width: '270px',
 		height: '270px',
 	},
-	hoveredContainer:{
+	hoveredContainer: {
 		width: '270px',
 		height: '270px',
 		padding: '10px 10px 10px 10px'
@@ -67,6 +67,12 @@ const cssStyles = {
 		textAlign: 'center',
 		verticalAlign: 'middle'
 	},
+	spaceBottom: {
+		marginBottom: '100px',
+	},
+	spaceBottomFooter: {
+		marginBottom: '50px',
+	}
 };
 
 class App extends React.Component {
@@ -114,11 +120,16 @@ class ToolbarWrapper extends React.Component {
 						<Grid item xs />
 						<Grid item xs />
 						<Grid item xs />
+						{/*
+						Menu is not supported at this version.
+
 						<Grid item alignItems='center'>
 							<Button color="inherit">Home</Button>
 							<Button color="inherit">Docs</Button>
 							<Button color="inherit">About me</Button>
 						</Grid>
+						 */}
+
 						<Grid item xs />
 					</Grid>
 				</Toolbar>
@@ -130,8 +141,10 @@ class ToolbarWrapper extends React.Component {
 class HeroUnitWrapper extends React.Component {
 	render() {
 		return (
-			<HeroUnit title="Show itself"
-				description="This site introduces itself. I'm trying to use current technologies for web over full stack. It describes how it works and what technoloes used." />
+			<div style={cssStyles.spaceBottom}>
+				<HeroUnit title="Show itself"
+					description="This site introduces itself. I'm trying to use current technologies for web over full stack. It describes how it works and what technoloes used." />
+			</div>
 		)
 	}
 }
@@ -208,9 +221,11 @@ class CardWrapper extends React.Component {
 class TechnologiesWrapper extends React.Component {
 	render() {
 		return (
-			<ContentWrapper title="Technologies"
-				description="Try to hover on each cards."
-				cardContents={this.props.cardContents} />
+			<div style={cssStyles.spaceBottom}>
+				<ContentWrapper title="Technologies"
+					description="Try to hover on each cards."
+					cardContents={this.props.cardContents} />
+			</div>
 		)
 	}
 }
@@ -218,9 +233,11 @@ class TechnologiesWrapper extends React.Component {
 class TechniquesWrapper extends React.Component {
 	render() {
 		return (
-			<ContentWrapper title="Techniques"
-				description="Try to hover on each cards."
-				cardContents={this.props.cardContents} />
+			<div style={cssStyles.spaceBottom}>
+				<ContentWrapper title="Techniques"
+					description="Try to hover on each cards."
+					cardContents={this.props.cardContents} />
+			</div>
 		)
 	}
 }
@@ -249,22 +266,24 @@ class ContentWrapper extends React.Component {
 class FooterWrapper extends React.Component {
 	render() {
 		return (
-			<footer className={styles.footer}>
-				<Typography variant="h6" align="center" gutterBottom>Footer</Typography>
-				<Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-					Something here to give the footer a purpose!
+			<div style={cssStyles.spaceBottomFooter}>
+				<footer className={styles.footer}>
+					<Typography variant="h6" align="center" gutterBottom>Footer</Typography>
+					<Typography variant="subtitle1" align="center" color="textSecondary" component="p">
+						Something here to give the footer a purpose!
 				</Typography>
 
-				{/* copyright */}
-				<Typography variant="body2" color="textSecondary" align="center">
-					{'Copyright © '}
-					<Link color="inherit" href="https://github.com/ByoungJoonIm">
-						ByoungJonn Im
+					{/* copyright */}
+					<Typography variant="body2" color="textSecondary" align="center">
+						{'Copyright © '}
+						<Link color="blue" href="https://github.com/ByoungJoonIm">
+							ByoungJonn Im
 					</Link>{' '}
-					{new Date().getFullYear()}
-					{'.'}
-				</Typography>
-			</footer>
+						{new Date().getFullYear()}
+						{'.'}
+					</Typography>
+				</footer>
+			</div>
 		);
 	}
 }
