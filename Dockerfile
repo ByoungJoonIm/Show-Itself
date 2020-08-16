@@ -7,7 +7,7 @@ RUN apt-get install nodejs npm openjdk-8-jdk git -y
 WORKDIR /root
 RUN git clone https://github.com/ByoungJoonIm/Show-Itself
 WORKDIR /root/Show-Itself
-RUN git checkout dev
+RUN git checkout origin/dev
 RUN bash gradlew webpack
 RUN bash gradlew build
 
