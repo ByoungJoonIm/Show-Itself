@@ -72,7 +72,15 @@ const cssStyles = {
 	},
 	spaceBottomFooter: {
 		marginBottom: '50px',
-	}
+	},
+	howItWorksDiv: {
+		height: '793px',
+		width: '1059px',
+	},
+	howItWorksImage: {
+		height: '793px',
+		width: '1059px',
+	},
 };
 
 class App extends React.Component {
@@ -99,6 +107,7 @@ class App extends React.Component {
 				<HeroUnitWrapper />
 				<TechnologiesWrapper cardContents={this.state.technologyCards} />
 				<TechniquesWrapper cardContents={this.state.techniqueCards} />
+				<HowItWorksWrapper />
 				<FooterWrapper />
 			</div>
 		)
@@ -259,6 +268,24 @@ class ContentWrapper extends React.Component {
 					{cardContents}
 				</Grid>
 			</Container>
+		)
+	}
+}
+
+class HowItWorksWrapper extends React.Component {
+	render() {
+		return (
+			<div style={cssStyles.spaceBottom}>
+				<HeroUnit title="How it works?"
+					description="It describes how this site works."
+				/>
+				<div align="center">
+					<div align="center" style={cssStyles.howItWorksDiv}>
+						<img src='images/howitworks.jpg' style={cssStyles.howItWorksImage} />
+					</div>
+				</div>
+				
+			</div>
 		)
 	}
 }
