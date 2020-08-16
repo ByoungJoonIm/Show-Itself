@@ -10,7 +10,7 @@
 - end points
   - [url]/api/technologyCards/[card id]
     - example : [http://bjdev.site/api/technologyCards](http://bjdev.site/api/technologyCards)
-    - example : [http://bjdev.site/api/technologyCards/1](http://bjdev.site/api/technologyCards/3)
+    - example : [http://bjdev.site/api/technologyCards/3](http://bjdev.site/api/technologyCards/3)
   - [url]/api/techniqueCards/[card id]
     - example : [http://bjdev.site/api/techniqueCards](http://bjdev.site/api/techniqueCards)
     - example : [http://bjdev.site/api/techniqueCards/10](http://bjdev.site/api/techniqueCards/10) ※ This example is vaild now, but I'am not sure at the future. If you have trouble, check each id by using above example.
