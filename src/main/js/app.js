@@ -277,7 +277,7 @@ class FooterWrapper extends React.Component {
 					<Typography variant="body2" color="textSecondary" align="center">
 						{'Copyright © '}
 						<Link color="blue" href="https://github.com/ByoungJoonIm">
-							ByoungJonn Im
+							ByoungJoon Im
 					</Link>{' '}
 						{new Date().getFullYear()}
 						{'.'}
