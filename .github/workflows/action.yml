@@ -26,5 +26,6 @@ jobs:
       run: |
         git config --local user.email "bj.max.lim@gmail.com"
         git config --local user.name "byoungjoonim"
-        git commit -m "[build] built from master branch" -a
+        git add build
+        git commit -m "[build] built from master branch"
         git push
