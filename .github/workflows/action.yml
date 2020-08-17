@@ -12,8 +12,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      with:
-        ref: dev
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
       with:
@@ -26,10 +24,7 @@ jobs:
       run: ./gradlew webpack build
     - name: Push
       run: |
-        cp -R build ~/
-        git checkout deployment -f
-        cp -R ~/build .
         git config --local user.email "bj.max.lim@gmail.com"
         git config --local user.name "byoungjoonim"
-        git commit -m "[build] built from dev branch" -a
+        git commit -m "[build] built from master branch" -a
         git push
