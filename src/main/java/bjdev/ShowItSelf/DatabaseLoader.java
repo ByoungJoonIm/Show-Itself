@@ -39,8 +39,7 @@ public class DatabaseLoader implements CommandLineRunner{
 		this.techniqueCardRepository.save(new TechniqueCard("DockerHub", "It is public repository for saving container images.", "dockerhub"));
 		this.techniqueCardRepository.save(new TechniqueCard("NPM", "It is package management tool for frontend runtime.", "npm"));
 		this.techniqueCardRepository.save(new TechniqueCard("Webpack", "It makes many static files single js file.", "webpack"));
-		
-		
+		this.techniqueCardRepository.save(new TechniqueCard("Github Action", "Build is automatically occurred on Azure which hosted by github Whenever pushed to master branch", "githubaction"));
 		
 	}
 }
