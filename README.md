@@ -1,5 +1,6 @@
 # Show-Itself
 ![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/ibjsw/show-itself)
+![build](https://github.com/ByoungJoonIm/Show-Itself/workflows/build/badge.svg?branch=master)
 
 ## What is this project?
 - This is web project for describing itself including what technologies used and how can I handle that.
