@@ -52,11 +52,12 @@ const cssStyles = {
 	cardImageDiv: {
 		height: '200px',
 		width: '270px',
-		padding: '5px 5px 5px 5px'
+		padding: '5px 5px 5px 5px',
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
 	},
 	cardImage: {
-		height: '190px',
-		width: '260px'
 	},
 	cardNameDiv: {
 		height: '70px',
