@@ -57,8 +57,6 @@ const cssStyles = {
 		alignItems: 'center',
 		justifyContent: 'center',
 	},
-	cardImage: {
-	},
 	cardNameDiv: {
 		height: '70px',
 		width: '270px',
@@ -208,7 +206,7 @@ class CardWrapper extends React.Component {
 			<div>
 				<div style={cssStyles.cardDiv}>
 					<div style={cssStyles.cardImageDiv}>
-						<img src={imageURI} style={cssStyles.cardImage} />
+						<img src={imageURI} />
 					</div>
 				</div>
 				<div style={cssStyles.cardNameDiv}>
