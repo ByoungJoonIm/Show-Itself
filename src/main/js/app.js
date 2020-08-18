@@ -294,10 +294,21 @@ class FooterWrapper extends React.Component {
 		return (
 			<div style={cssStyles.spaceBottomFooter}>
 				<footer className={styles.footer}>
-					<Typography variant="h6" align="center" gutterBottom>Footer</Typography>
-					<Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-						It will be replaced as footer message.
+					<Typography variant="h6" align="center" gutterBottom>
+						BJDEV
 					</Typography>
+					<Typography variant="subtitle1" align="center" color="textSecondary" component="p">
+						I'm so excited to deloy this site!
+					</Typography>
+					<Typography variant="body2" align="center" color="textSecondary" component="p">
+						<Link color="blue" href="https://github.com/ByoungJoonIm/Show-Itself">
+							GitRepo
+					</Link>{' '}
+					<Link color="blue" href="https://github.com/ByoungJoonIm/Show-Itself/blob/master/LICENSE">
+							License
+					</Link>
+					</Typography>
+					
 
 					{/* copyright */}
 					<Typography variant="body2" color="textSecondary" align="center">
