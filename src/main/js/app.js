@@ -73,8 +73,8 @@ const cssStyles = {
 		marginBottom: '50px',
 	},
 	howItWorksDiv: {
-		height: '793px',
-		width: '1059px',
+		height: '792px',
+		width: '1056px',
 	},
 };
 
