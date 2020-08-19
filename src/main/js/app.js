@@ -151,7 +151,7 @@ class HeroUnitWrapper extends React.Component {
 		return (
 			<div style={cssStyles.spaceBottom}>
 				<HeroUnit title="Show itself"
-					description="This site introduces itself. I'm trying to use current technologies for web over full stack. It describes how it works and what technoloes used." />
+					description="This site introduces itself. I'm trying to use current technologies for web over full stack. It describes how does it work and what technologies used." />
 			</div>
 		)
 	}
@@ -199,9 +199,7 @@ class CardWrapper extends React.Component {
 				<div style={cssStyles.hoveredText}>{this.props.cardContent.description}</div>
 			</div>
 
-		const imageURI = this.props.cardContent._links.iconImageLink ?
-			this.props.cardContent._links.iconImageLink.href :
-			"http://www.localhost:8080/api/iconImages/not-found"
+		const imageURI = this.props.cardContent._links.iconImageLink.href
 		const nonHoveredContent =
 			<div>
 				<div style={cssStyles.cardDiv}>
@@ -231,7 +229,7 @@ class TechnologiesWrapper extends React.Component {
 		return (
 			<div style={cssStyles.spaceBottom}>
 				<ContentWrapper title="Technologies"
-					description="Try to hover on each cards."
+					description="Try to hover on each card."
 					cardContents={this.props.cardContents} />
 			</div>
 		)
@@ -243,7 +241,7 @@ class TechniquesWrapper extends React.Component {
 		return (
 			<div style={cssStyles.spaceBottom}>
 				<ContentWrapper title="Techniques"
-					description="Try to hover on each cards."
+					description="Try to hover on each card."
 					cardContents={this.props.cardContents} />
 			</div>
 		)
@@ -275,7 +273,7 @@ class HowItWorksWrapper extends React.Component {
 	render() {
 		return (
 			<div style={cssStyles.spaceBottom}>
-				<HeroUnit title="How it works?"
+				<HeroUnit title="How does it work?"
 					description="It describes how this site works."
 				/>
 				<div align="center">
@@ -298,7 +296,7 @@ class FooterWrapper extends React.Component {
 						BJDEV
 					</Typography>
 					<Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-						I'm so excited to deloy this site!
+						I'm so excited to deploy this site!
 					</Typography>
 					<Typography variant="body2" align="center" color="textSecondary" component="p">
 						<Link color="blue" href="https://github.com/ByoungJoonIm/Show-Itself">
