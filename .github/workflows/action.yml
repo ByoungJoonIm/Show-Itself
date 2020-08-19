@@ -20,8 +20,10 @@ jobs:
       uses: actions/setup-node@v1.4.3
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+    - name: Clean build
+      run: ./gradlw clean
     - name: Build and Webpack with Gradle
-      run: ./gradlew clean webpack build
+      run: ./gradlew webpack build
     - name: Push
       run: |
         git config --local user.email "bj.max.lim@gmail.com"
