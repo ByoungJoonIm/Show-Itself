@@ -21,7 +21,7 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Clean build
-      run: ./gradlw clean
+      run: ./gradlew clean
     - name: Build and Webpack with Gradle
       run: ./gradlew webpack build
     - name: Push
