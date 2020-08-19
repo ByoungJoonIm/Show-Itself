@@ -76,10 +76,6 @@ const cssStyles = {
 		height: '793px',
 		width: '1059px',
 	},
-	howItWorksImage: {
-		height: '793px',
-		width: '1059px',
-	},
 };
 
 class App extends React.Component {
@@ -278,7 +274,7 @@ class HowItWorksWrapper extends React.Component {
 				/>
 				<div align="center">
 					<div align="center" style={cssStyles.howItWorksDiv}>
-						<img src='images/howitworks.jpg' style={cssStyles.howItWorksImage} />
+						<img src='images/howitworks.jpg' />
 					</div>
 				</div>
 				
