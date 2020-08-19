@@ -1,8 +1,13 @@
 {
   "name": "showitself",
-  "version": "0.1.0",
+  "version": "0.0.2",
   "description": "This site introduces itself",
   "author": "Byoungjoon Im",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ByoungJoonIm/Show-Itself"
+  },
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ByoungJoonIm/Show-Itself/issues"
   },
