@@ -1,4 +1,3 @@
 #!/bin/bash
 
-cd build/libs
-java -jar `ls`
+java -jar `ls built/*.jar`
