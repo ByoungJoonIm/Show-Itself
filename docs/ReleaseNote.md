@@ -6,6 +6,7 @@
 # v0.0.2(Released)
 - Modified typo.
 - Project version which used in gradle is have dependancy from package.json
+- project title was changed from main to bjdev - show itself.
 
 # v0.0.1(Released)
 - Initial version of this project.
