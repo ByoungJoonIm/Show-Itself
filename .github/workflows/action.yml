@@ -26,7 +26,7 @@ jobs:
       run: rm -r built/*
     - name: copy jar and public
       run: |
-        cp `build/libs/ls` built
+        cp `ls build/libs/*.jar` built
         cp -R public built
     - name: Push
       run: |
