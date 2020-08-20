@@ -20,14 +20,18 @@ jobs:
       uses: actions/setup-node@v1.4.3
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-    - name: Clean build
-      run: ./gradlew clean
     - name: Build and Webpack with Gradle
       run: ./gradlew webpack build
+    - name: clean built
+      run: rm -r built/*
+    - name: copy jar and public
+      run: |
+        cp `build/lib/ls` built
+        cp -R public built
     - name: Push
       run: |
         git config --local user.email "bj.max.lim@gmail.com"
         git config --local user.name "byoungjoonim"
-        git add build
-        git commit -m "[build] built from master branch"
+        git add built
+        git commit -m "[build] built by github action on master branch"
         git push
