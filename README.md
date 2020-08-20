@@ -1,4 +1,4 @@
-# Show-Itself ![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/ibjsw/show-itself) ![build](https://github.com/ByoungJoonIm/Show-Itself/workflows/build/badge.svg?branch=master) ![GitHub](https://img.shields.io/github/license/byoungjoonim/Show-Itself)
+# Show-Itself ![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/ibjsw/show-itself) ![build](https://github.com/ByoungJoonIm/Show-Itself/workflows/build/badge.svg?branch=master) ![GitHub](https://img.shields.io/github/license/byoungjoonim/Show-Itself) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/byoungjoonim/Show-Itself)
 
 ## What is this project?
 - This is web project for describing itself including what technologies used and how can I have handled that.
