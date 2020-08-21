@@ -16,7 +16,9 @@
 docker pull ibjsw/show-itself:release-v0.0.2
 docker run -it -d --name web -p 80:80 ibjsw/show-itself:release-v0.0.2
 ```
-- If you meet docker pull error, see [here](https://hub.docker.com/repository/registry-1.docker.io/ibjsw/show-itself/tags?page=1)
+- Change release version to latest. Latest version is ![GitHub release (latest by date)](https://img.shields.io/github/v/release/byoungjoonim/Show-Itself)
+- If you meet docker pull error, see [docker repo](https://hub.docker.com/repository/registry-1.docker.io/ibjsw/show-itself/tags?page=1)
+- Tag version and docker release image version are always same.
 
 ### Using git(bleeding edge)
 - requirement
