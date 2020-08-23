@@ -40,6 +40,9 @@ const cssStyles = {
 		padding: '10px 10px 10px 10px'
 	},
 	hoveredText: {
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
 		width: '250px',
 		height: '250px',
 		wordWrap: 'break-word',
