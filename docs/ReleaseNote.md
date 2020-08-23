@@ -5,6 +5,10 @@
 - Need to arrange texts in card contents.
 
 ## v0.0.x
+### v0.0.4
+- Card description was changed.
+- Card text moved to center.
+
 ### v0.0.3
 - Modified typo in howitworks.jpg.
 - Added favicon.ico
