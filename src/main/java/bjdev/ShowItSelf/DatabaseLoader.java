@@ -24,22 +24,22 @@ public class DatabaseLoader implements CommandLineRunner{
 		//technologies
 		this.technologyCardRepository.save(new TechnologyCard("React", "It used for frontend. This grammar based on react-spring guide in spring web site.", "react"));
 		this.technologyCardRepository.save(new TechnologyCard("Spring", "It used for backend. See techniques detail.", "spring"));
-		this.technologyCardRepository.save(new TechnologyCard("AWS", "EC2 instance was used at this time. It will be huge instance for changing to kubernetes.", "aws"));
-		this.technologyCardRepository.save(new TechnologyCard("Docker", "Image build will be occurred automatically when I push to dev branch in github or make new release.", "docker"));
-		this.technologyCardRepository.save(new TechnologyCard("Git", "It was used for version management system.", "git"));
+		this.technologyCardRepository.save(new TechnologyCard("AWS", "Cloud platforms provide a lot of resources including vps, network and storage by on-demand.", "aws"));
+		this.technologyCardRepository.save(new TechnologyCard("Docker", "Image build will be occurred automatically when I release new version in github.", "docker"));
+		this.technologyCardRepository.save(new TechnologyCard("Git", "VMS(Version Management System) is very important to manage source and collaborate with co-workers. It also provide github action.", "git"));
 		this.technologyCardRepository.save(new TechnologyCard("Gradle", "Gradle is modern build tool and it is faster than maven(Referenced by gradle).", "gradle"));
-		this.technologyCardRepository.save(new TechnologyCard("NodeJs", "Nodejs provides frontend runtime.", "nodejs"));
+		this.technologyCardRepository.save(new TechnologyCard("NodeJs", "Nodejs provides frontend runtime and modules for wepack.", "nodejs"));
 		
 		
 		//techniques
-		this.techniqueCardRepository.save(new TechniqueCard("REST API", "It is designed by REST API", "rest"));
-		this.techniqueCardRepository.save(new TechniqueCard("HATEOAS", "It is used for providing other links", "hateoas"));
-		this.techniqueCardRepository.save(new TechniqueCard("EC2", "t2.micro(1 vcpu and 1GB RAM) instance was used at this time.", "ec2"));
-		this.techniqueCardRepository.save(new TechniqueCard("Github", "It is public repository which is provided by microsoft.", "github"));
-		this.techniqueCardRepository.save(new TechniqueCard("DockerHub", "It is public repository for saving container images.", "dockerhub"));
-		this.techniqueCardRepository.save(new TechniqueCard("NPM", "It is package management tool for frontend runtime.", "npm"));
-		this.techniqueCardRepository.save(new TechniqueCard("Webpack", "It makes many static files single js file.", "webpack"));
-		this.techniqueCardRepository.save(new TechniqueCard("Github Action", "Build is automatically occurred on Azure which hosted by github Whenever pushed to master branch", "githubaction"));
+		this.techniqueCardRepository.save(new TechniqueCard("REST API", "This project is using REST API.", "rest"));
+		this.techniqueCardRepository.save(new TechniqueCard("HATEOAS", "HATEOAS(Hypermedia as the Engine of Application State) is used for providing other links.", "hateoas"));
+		this.techniqueCardRepository.save(new TechniqueCard("EC2", "t2.micro(1 vcpu and 1GB RAM) instance was used at this time. It will be huge instance for changing to kubernetes.", "ec2"));
+		this.techniqueCardRepository.save(new TechniqueCard("Github", "I think github which is hosted by microsoft is center of open sources. It provides a lot of awesome features for developers.", "github"));
+		this.techniqueCardRepository.save(new TechniqueCard("DockerHub", "Github saves code. Like this, Dockerhub saves docker images.", "dockerhub"));
+		this.techniqueCardRepository.save(new TechniqueCard("NPM", "NPM(Node Package Manager) is package management tool for frontend.", "npm"));
+		this.techniqueCardRepository.save(new TechniqueCard("Webpack", "Wepack makes many static files single js file. Also it optimizes and makes the js file have less size.", "webpack"));
+		this.techniqueCardRepository.save(new TechniqueCard("Github Action", "Build is automatically occurred on Azure which hosted by microsoft Whenever pushed to master branch", "githubaction"));
 		
 	}
 }
