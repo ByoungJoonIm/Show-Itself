@@ -9,6 +9,7 @@
 - I hope to give you good document. Currently you can refer to as follow.
   - [Rest API spec](https://github.com/ByoungJoonIm/Show-Itself/blob/master/docs/RestAPI.md)
   - [Release note](https://github.com/ByoungJoonIm/Show-Itself/blob/master/docs/ReleaseNote.md)
+  - [Kubernetes](https://github.com/ByoungJoonIm/Show-Itself/blob/master/docs/Kubernetes.md)
 
 ## How can I start it?
 ### Using docker(recommended)
