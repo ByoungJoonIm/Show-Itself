@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+spec:
+  selector:
+    app: show-itself
+    tier: backend
+  ports:
+    - name : http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  selector:
+    matchLabels:
+      app: show-itself
+      tier: backend
+      track: stable
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: show-itself
+        tier: backend
+        track: stable
+    spec:
+      containers:
+        - name: nginx
+          image: "docker.io/ibjsw/show-itself:release-v0.0.4"
+          ports:
+          - containerPort: 80
