@@ -1,10 +1,16 @@
 ## What is the next?
 - Change to kubernetes environment.
+  - Add webhook pod for updating images without downtime.
 - Write tests.
 - Add more pages.
 - Need to arrange texts in card contents.
 
 ## v0.0.x
+### v1.0.0
+- Kubernetes is available. But it is not applied to deploy server because resource power is not enough.
+- Added kubernetes document.
+- Added kubernetes workflow image.
+
 ### v0.0.4
 - Card description was changed.
 - Card text moved to center.
