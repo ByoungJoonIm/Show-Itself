@@ -83,6 +83,14 @@ const cssStyles = {
 		height: '792px',
 		width: '1056px',
 	},
+	howK8sWorksDiv: {
+		height: '493px',
+		width: '1013px',
+	},
+	howK8sWorksImage: {
+		height: '493px',
+		width: '1013px',
+	},
 };
 
 class App extends React.Component {
@@ -110,6 +118,7 @@ class App extends React.Component {
 				<TechnologiesWrapper cardContents={this.state.technologyCards} />
 				<TechniquesWrapper cardContents={this.state.techniqueCards} />
 				<HowItWorksWrapper />
+				<HowK8sWorksWrapper />
 				<FooterWrapper />
 			</div>
 		)
@@ -282,6 +291,24 @@ class HowItWorksWrapper extends React.Component {
 				<div align="center">
 					<div align="center" style={cssStyles.howItWorksDiv}>
 						<img src='images/howitworks.jpg' style={cssStyles.howItWorksImage}/>
+					</div>
+				</div>
+				
+			</div>
+		)
+	}
+}
+
+class HowK8sWorksWrapper extends React.Component {
+	render() {
+		return (
+			<div style={cssStyles.spaceBottom}>
+				<HeroUnit title="How does kubernetes work?"
+					description="It describes kubernetes workflow. See document for detail."
+				/>
+				<div align="center">
+					<div align="center" style={cssStyles.howK8sWorksDiv}>
+						<img src='images/howk8sworks.jpg' style={cssStyles.howK8sWorksImage}/>
 					</div>
 				</div>
 				
