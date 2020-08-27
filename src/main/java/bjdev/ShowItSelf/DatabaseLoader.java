@@ -29,6 +29,7 @@ public class DatabaseLoader implements CommandLineRunner{
 		this.technologyCardRepository.save(new TechnologyCard("Git", "VMS(Version Management System) is very important to manage source and collaborate with co-workers. It also provide github action.", "git"));
 		this.technologyCardRepository.save(new TechnologyCard("Gradle", "Gradle is modern build tool and it is faster than maven(Referenced by gradle).", "gradle"));
 		this.technologyCardRepository.save(new TechnologyCard("NodeJs", "Nodejs provides frontend runtime and modules for wepack.", "nodejs"));
+		this.technologyCardRepository.save(new TechnologyCard("Kubernetes", "Kubernetes (K8s) is an open-source system for automating deployment, scaling, and management of containerized applications.", "kubernetes"));
 		
 		
 		//techniques
@@ -40,6 +41,7 @@ public class DatabaseLoader implements CommandLineRunner{
 		this.techniqueCardRepository.save(new TechniqueCard("NPM", "NPM(Node Package Manager) is package management tool for frontend.", "npm"));
 		this.techniqueCardRepository.save(new TechniqueCard("Webpack", "Wepack makes many static files single js file. Also it optimizes and makes the js file have less size.", "webpack"));
 		this.techniqueCardRepository.save(new TechniqueCard("Github Action", "Build is automatically occurred on Azure which hosted by microsoft Whenever pushed to master branch", "githubaction"));
+		this.techniqueCardRepository.save(new TechniqueCard("K3s", "K3s is lightweight kubernetes.", "k3s"));
 		
 	}
 }
