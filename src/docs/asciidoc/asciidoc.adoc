@@ -1,0 +1,20 @@
+= Show Itself
+Doc Writer <bj.max.lim@gmail.com>
+{localdate}
+:my-doc: ../../../docs
+:kubernetes: {my-doc}/Kubernetes.adoc
+:release: {my-doc}/ReleaseNote.adoc
+:rest-api: {my-doc}/RestAPI.adoc
+
+This page give you full document of this project.
+
+== Techniques
+include::{release}[]
+
+'''
+
+include::{rest-api}[]
+
+'''
+
+include::{kubernetes}[]
