@@ -1,5 +1,5 @@
-=== REST API
-==== Design
+== REST API
+=== Design
 * It is not have version at this time.
 * It supports three api as follow
   ** technique cards
@@ -7,7 +7,7 @@
   ** iconImages
 * It follows hateoas.
 
-==== API
+=== API
 :host-name: http://bjdev.site
 :api-url: {host-name}/api
 :technology-url: {api-url}/technologyCards

@@ -17,7 +17,9 @@ public class TechniqueCardProcessor implements RepresentationModelProcessor<Enti
     	TechniqueCard techniqueCard = resource.getContent();
     	
     	try {
+    		// tag::hateoas[]
         	resource.add(linkTo(methodOn(IconImageController.class).getAnImageWithMediaType(techniqueCard.getIconName())).withRel("iconImageLink"));    		
+        	// end::hateoas[]
     	} catch(IOException ioe) {
     		ioe.printStackTrace();;
     	}

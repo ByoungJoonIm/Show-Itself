@@ -1,0 +1,136 @@
+:code-dir: ../src/main/java/bjdev/ShowItSelf
+:hateoas: {code-dir}/TechniqueCardProcessor.java
+
+== Technical Stack
+This session may give you why I selected these tech and how do they work.
+
+=== Spring
+link:https://spring.io/[Spring] is well-known backend framework. It provides a lot of features and well-made link:https://spring.io/guides[guides]. I used link:https://spring.io/projects/spring-boot[spring-boot] which makes initial settings easy. You can set your first project without hard thinking about dependencies and spending lots of time for seeing 'hello world' page.
+
+==== REST API
+It provides `spring-boot-starter-data-rest` dependency. It is very easy to service REST API by adding this. I didn't need to use controller, but it worked well. I just did something as follw.
+
+* Made Entity.(link:https://github.com/ByoungJoonIm/Show-Itself/blob/master/src/main/java/bjdev/ShowItSelf/TechniqueCard.java[code])
+* Made Repository for the entity.(link:https://github.com/ByoungJoonIm/Show-Itself/blob/master/src/main/java/bjdev/ShowItSelf/TechniqueCardRepository.java[code])
++
+--
+NOTE: I added processors for adding additional links. But, it is optional.
+--
+* Insert sample data.(link:https://github.com/ByoungJoonIm/Show-Itself/blob/master/src/main/java/bjdev/ShowItSelf/DatabaseLoader.java[code])
+
+==== HATEOAS
+.Official spring guide says as follow.
+----
+Spring HATEOAS provides some APIs to ease creating REST representations that follow the HATEOAS principle when working with Spring and especially Spring MVC.
+----
+
+* Simply I used it like this for adding additional link.
+
++
+[source,java]
+----
+include::{hateoas}[tag=hateoas]
+----
+
+** It is very strong because I don't need to write 'hard code'.
+
+'''
+
+=== React
+link:https://reactjs.org/[React] is one of the most famous frontend framework. It based on component-driven system. I felt it is higher level than html and javascript. I wondered why a lot of people use it at this time. Learning curve is not too high, if you just want simple example. I spent less than 4 days for making part that is made by it.
+
+==== Material UI
+I think Material UI also framework. But, it have higher level than React. It means it gives us a lot of pre-made components.
+
+'''
+
+=== AWS
+AWS is the most famous cloud provider. The reason I selected it is that it provides free-tier plan. I need server for deployment and it means I have to pay for it. I have kept almost 10$ more a month by using the free-tier. Thans AWS!
+
+==== ECS
+ECS is one of services given by AWS. It is kind of VPS(Virtual private server). I used ubuntu 18.04 LTS and I can access it through SSH. It works like general computer.
+
+'''
+
+=== Docker
+Docker used for handling containers. One thing that makes development hard is setting and keeping environment. Docker makes them easy. It gives us a lot of pre-build images.
+
+==== Docker hub
+Docker hub is docker image repository like github. See my link:https://hub.docker.com/repository/docker/ibjsw/show-itself/tags?page=1[docker-hub repository]. I used it to build docker image automatically. After building image, it send a post message, called webhook ,to my server. It is trigger to update running image.
+
+'''
+
+=== Git
+Git is VMS(Version Management System) developed by Linus Torvalds. It helps us easy to collaborate with colleagues and handle version.
+
+==== Github
+Github is code repository provided by MicroSoft.
+
+==== Github Action
+Github Action is kind of CI. It is very easy to learn and powerful. It detects push or pull-request and works task that I made. I used it for building process automatically. Whenever I push to my repository with commit message started with '[pre-release]' or '[build-test]', it builds my code and push result to the repository automatically. See link:https://github.com/ByoungJoonIm/Show-Itself/blob/master/.github/workflows/action.yml[workflow].
+
+'''
+
+=== Gradle
+Gradle is a build tool. I had to build java files as well as js files. It made it simple and it also manages dependencies. See link:https://github.com/ByoungJoonIm/Show-Itself/blob/master/build.gradle[build.gradle] which is used for this project.
+
+==== gradlew
+Gradlew is wrapper of Gradle. Whenever you set build environment, it is very annoying task to install Gradle. Gradlew help you resolves this problem. It installs all dependencies including Gradle and doesn't require anything.
+
+'''
+
+=== NodeJs
+NodeJs is javascript runtime. I used it for build javascript files.
+
+==== NPM
+NPM is Node Package Manager. It's like apt in Linux. It manages all dependencies related with frontend stack. It is described in link:https://github.com/ByoungJoonIm/Show-Itself/blob/master/package.json[packge.json].
+
+==== Webpack
+Webpack is bundling tool. When you develop frontend, you may make many separated js files. It is very hard to handle them when you deploy release. At that moment, Wepack is one of solution. It makes single js file from many js files as well as compress them. One problem I faced was grammar is not easy. I followed guide and almost didn't change link:https://github.com/ByoungJoonIm/Show-Itself/blob/master/webpack.config.js[webpack.config.js].
+
+'''
+
+=== Kubernetes
+
+- I tried to use kubernetes, but I couldn't. I hoped to use free tier EC2 instance, 1 CPU, 1GB RAM, and I noticed that is not enough for minikuber requirement. So, I found alternate called link:https://k3s.io/[k3s] which is lightweight kubernetes. Although I finally succeed to access my web page over a web browser, I figured out that server is still too small. It is not enough to run my web service. Though I failed to deploy my site by using kubernetes, I hope to describe how does it work.
+
+==== How does it work?
+* Install k3s
+  ** $ `curl -sfL \https://get.k3s.io | sh -`
+* Set disable features that will not used for me
+  ** $ `sudo vi /etc/systemd/system/k3s.service`
+    *** Change options at the very bottom.
+----
+    ExecStart=/usr/local/bin/k3s \
+    server \
+    '--write-kubeconfig-mode' \
+    '644' \
+    '--disable' \
+    'coredns' \
+    '--disable' \
+    'servicelb' \
+    '--disable' \
+    'metrics-server'
+    '--disable' \
+    'traefik' \
+----
+* Reload daemon and restart k3s
+  ** $ `sudo systemctl daemon-reload`
+  ** $ `sudo systemctl restart k3s`
+
+* Install nginx-ingress controller.
+  ** It handles inbound traffic to clusters.
+  ** I installed baremetal version nginx-ingress.
+  ** $ `kubectl apply -f \https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.34.1/deploy/static/provider/baremetal/deploy.yaml`
+* Apply yaml files.
+  ** You can see this files in k8s directory.
+  ** $ `kubectl apply -f ingress.yaml`
+  ** $ `kubectl apply -f backend.yaml`
+* Test a setting.
+  ** After applied all things, just type as follow.
+  ** $ `curl localhost`
+  ** $ `curl [Your IP]`
++
+--
+WARNING: your port 80 must be opened.
+--
