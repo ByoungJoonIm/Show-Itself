@@ -20,7 +20,11 @@ jobs:
       uses: actions/setup-node@v1.4.3
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-    - name: Build and Webpack with Gradle
+    - name: build asciidoc
+      run: ./gradlew asciidoctor
+    - name: copy doc file to src
+      run: cp build/docs/asciidoc.html src/main/resources/templates/docs.html
+    - name: Build code and Webpack with Gradle
       run: ./gradlew webpack build
     - name: clean built
       run: rm -r built/*
