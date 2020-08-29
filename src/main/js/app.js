@@ -132,7 +132,7 @@ class ToolbarWrapper extends React.Component {
 				<Toolbar>
 					<Grid container alignItems='center'>
 						<Grid item>
-							<Button color="inherit">
+							<Button color="inherit" onClick={() => location = 'home'}>
 								<Typography variant="h6" color="inherit" noWrap>bjdev</Typography>
 							</Button>
 						</Grid>
@@ -140,15 +140,14 @@ class ToolbarWrapper extends React.Component {
 						<Grid item xs />
 						<Grid item xs />
 						<Grid item xs />
-						{/*
-						Menu is not supported at this version.
-
 						<Grid item alignItems='center'>
-							<Button color="inherit">Home</Button>
-							<Button color="inherit">Docs</Button>
+							<Button color="inherit" onClick={() => location = 'home'}>Home</Button>
+							<Button color="inherit" onClick={() => location = 'docs'}>Docs</Button>
+							{/*
 							<Button color="inherit">About me</Button>
+							 */}
 						</Grid>
-						 */}
+
 
 						<Grid item xs />
 					</Grid>
@@ -290,10 +289,10 @@ class HowItWorksWrapper extends React.Component {
 				/>
 				<div align="center">
 					<div align="center" style={cssStyles.howItWorksDiv}>
-						<img src='images/howitworks.jpg' style={cssStyles.howItWorksImage}/>
+						<img src='images/howitworks.jpg' style={cssStyles.howItWorksImage} />
 					</div>
 				</div>
-				
+
 			</div>
 		)
 	}
@@ -308,10 +307,10 @@ class HowK8sWorksWrapper extends React.Component {
 				/>
 				<div align="center">
 					<div align="center" style={cssStyles.howK8sWorksDiv}>
-						<img src='images/howk8sworks.jpg' style={cssStyles.howK8sWorksImage}/>
+						<img src='images/howk8sworks.jpg' style={cssStyles.howK8sWorksImage} />
 					</div>
 				</div>
-				
+
 			</div>
 		)
 	}
@@ -332,11 +331,11 @@ class FooterWrapper extends React.Component {
 						<Link color="blue" href="https://github.com/ByoungJoonIm/Show-Itself">
 							GitRepo
 					</Link>{' '}
-					<Link color="blue" href="https://github.com/ByoungJoonIm/Show-Itself/blob/master/LICENSE">
+						<Link color="blue" href="https://github.com/ByoungJoonIm/Show-Itself/blob/master/LICENSE">
 							License
 					</Link>
 					</Typography>
-					
+
 
 					{/* copyright */}
 					<Typography variant="body2" color="textSecondary" align="center">
