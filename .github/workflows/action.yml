@@ -9,7 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    if: "contains(github.event.head_commit.message, '[pre-release]') || contains(github.event.head_commit.message, '[pre-release-test]')"
+    
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 1.8
