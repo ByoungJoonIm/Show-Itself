@@ -1,5 +1,8 @@
 == ReleaseNote
 
+=== v2.0.0
+* Https is available.
+
 === v1.1.1
 * Updated document.
 
