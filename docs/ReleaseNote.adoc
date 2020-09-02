@@ -1,5 +1,8 @@
 == ReleaseNote
 
+=== v2.0.1
+* Updated document about nginx, https and Asciidoctor.
+
 === v2.0.0
 * Https is available.
 
