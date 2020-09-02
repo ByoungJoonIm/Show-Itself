@@ -152,3 +152,20 @@ Asciidoc is human-friendly-format like markdown. I wanted to separate each doc f
 
 * link:https://powerman.name/doc/asciidoc[Asciidoc cheat sheet] 
 * link:https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[Asciidoc official doc]
+
+=== Nginx
+
+Nginx is web server like Apache. Normally it is responsible for front-end server and connecting with Web Application Server(WAS). It means that it provides static files and js files. Request workflow is as follow.
+
+. A user requests to server.
+. Nginx gets request and deliver it to WAS. It also offers static files and js files to client directly.
+.. If nginx serve https, a good way to handle http is to guide it to redirect to https. Certbot helps it easy. 
+. WAS handles request such as DB access and return response.
+. Nginx gets WAS's response and passes it to the user.
+
+I would like to share a problem that I was suffered. When I applied https, I met a problem that is shown 'This site is not secure'. I tested my site and figured it out. It was rest-api problem. A client and server are connected as https, but server generated http links in rest api. Not server connected with client directly, but nginx did so. It means WAS doesn't know whether request is based on http or https. A solution that I found was setting X-Forwared-Proto in nginx server. It was header for letting WAS know protocol type. But, it was not enough. WAS also had to allow using x-forwared-proto header. See two file to solve this problem.
+
+* link:https://github.com/ByoungJoonIm/Show-Itself/blob/master/nginx/web.conf[web.conf(nginx server configuration)]
+* link:https://github.com/ByoungJoonIm/Show-Itself/blob/master/src/main/resources/application.properties[application.properties(WAS side configuration)]
+
+
