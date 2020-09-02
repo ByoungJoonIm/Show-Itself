@@ -44,9 +44,16 @@ const cssStyles = {
 		alignItems: 'center',
 		justifyContent: 'center',
 		width: '250px',
-		height: '250px',
+		height: '200px',
 		wordWrap: 'break-word',
 		textAlign: 'center',
+	},
+	hoveredLink: {
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		width: '250px',
+		height: '50px',
 	},
 	cardDiv: {
 		height: '200px',
@@ -203,6 +210,13 @@ class CardWrapper extends React.Component {
 		const hoveredContent =
 			<div style={cssStyles.hoveredContainer}>
 				<div style={cssStyles.hoveredText}>{this.props.cardContent.description}</div>
+				<div style={cssStyles.hoveredLink}>
+					<Typography variant="h6" color="textSecondary" align="center">
+						<Link color="blue" href={this.props.cardContent._links.docDetailLink.href}>
+							see details
+						</Link>
+					</Typography>
+				</div>
 			</div>
 
 		const imageURI = this.props.cardContent._links.iconImageLink.href
