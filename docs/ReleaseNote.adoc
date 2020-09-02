@@ -1,5 +1,8 @@
 == ReleaseNote
 
+=== v2.0.2
+* [hot fix] Updated image url for ssl_report.
+
 === v2.0.1
 * Updated document about nginx, https and Asciidoctor.
 
