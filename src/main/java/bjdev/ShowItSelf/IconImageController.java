@@ -22,17 +22,6 @@ public class IconImageController {
 	@Autowired
 	ResourceLoader resourceLoader;
 	
-	/*
-	 * This method will be removed.
-	 * */
-	@GetMapping(
-			value = "/iconImages",
-			produces = MediaType.IMAGE_JPEG_VALUE
-	)
-	public @ResponseBody ResponseEntity<byte[]> getTestImage() throws IOException{
-		return new ResponseEntity<>(IOUtils.toByteArray(resourceLoader.getResource("classpath:static/images/react-icon.jpg").getURI()), HttpStatus.OK);
-	}
-	
 	@GetMapping(
 			value = "/iconImages/{iconName}",
 			produces = MediaType.IMAGE_JPEG_VALUE
