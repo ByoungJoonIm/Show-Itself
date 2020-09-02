@@ -7,6 +7,7 @@ import java.io.IOException;
 
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelProcessor;
+import org.springframework.hateoas.server.mvc.BasicLinkBuilder;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -18,8 +19,10 @@ public class TechnologyCardProcessor implements RepresentationModelProcessor<Ent
     	
     	try {
     		// tag::hateoas[]
-        	resource.add(linkTo(methodOn(IconImageController.class).getAnImageWithMediaType(technologyCard.getIconName())).withRel("iconImageLink"));    		
+    		resource.add(linkTo(methodOn(IconImageController.class).getAnImageWithMediaType(technologyCard.getIconName())).withRel("iconImageLink"));    		
         	// end::hateoas[]
+    		resource.add(BasicLinkBuilder.linkToCurrentMapping()
+    				.slash(MvcConfig.DOCS + technologyCard.getDocTitleName()).withRel("docDetailLink"));
     	} catch(IOException ioe) {
     		ioe.printStackTrace();;
     	}

@@ -1,6 +1,7 @@
 package bjdev.ShowItSelf;
 
 import java.util.Objects;
+import java.util.StringTokenizer;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,17 +15,28 @@ public class TechnologyCard {
 	private String name;
 	private String description;
 	private @JsonIgnore String iconName;
+	private @JsonIgnore String docTitleName;
 	
 	private TechnologyCard() {}
 	
-	public TechnologyCard(String name, String description) {
-		this(name, description, "not-found");
-	}
-	
-	public TechnologyCard(String name, String description, String iconName) {
+	public TechnologyCard(String name, String iconName, String description) {
 		this.name = name;
 		this.description = description;
-		this.iconName = iconName;
+
+		StringBuilder iconSb = new StringBuilder();
+		StringBuilder docSb = new StringBuilder();
+		StringTokenizer st = new StringTokenizer(iconName.toLowerCase());
+		
+		docSb.append('#');
+		
+		while(st.hasMoreTokens()) {
+			String cur = st.nextToken();
+			iconSb.append(cur);
+			docSb.append('_').append(cur);
+		}
+			
+		this.iconName = iconSb.toString();
+		this.docTitleName = docSb.toString();
 	}
 	
 	@Override
@@ -75,6 +87,14 @@ public class TechnologyCard {
 
 	public void setIconName(String iconName) {
 		this.iconName = iconName;
+	}
+
+	public String getDocTitleName() {
+		return docTitleName;
+	}
+
+	public void setDocTitleName(String docTitleName) {
+		this.docTitleName = docTitleName;
 	}
 
 	@Override
