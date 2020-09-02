@@ -18,6 +18,39 @@ NOTE: I added processors for adding additional links. But, it is optional.
 --
 * Insert sample data.(link:https://github.com/ByoungJoonIm/Show-Itself/blob/master/src/main/java/bjdev/ShowItSelf/DatabaseLoader.java[code])
 
+* It is not have version at this time.
+* It supports two api as follow
+  ** technology cards
+  ** iconImages
+
+===== API
+:host-name: http://bjdev.site
+:api-url: {host-name}/api
+:technology-url: {api-url}/technologyCards
+:iconImage-url: {api-url}/iconImages
+
+end points::
+  * [host-name]/api/technologyCards/[card id]
+    ** example : link:{technology-url}[{technology-url}]
+    ** example : link:{technology-url}/3[{technology-url}/3]
++
+--
+.Be carefull
+[NOTE]
+This example is vaild now, but I'am not sure at the future. If you have a trouble, check each id by using above example.
+--
+  * [host-name]/api/iconImages/[iconName]
++
+--
+.Be carefull
+[NOTE]
+===============================
+*[iconName]* doesn't have extension and is lowercase. Refer to names in link:https://github.com/ByoungJoonIm/Show-Itself/tree/master/src/main/resources/static/images[here]
+===============================
+--  
+    ** example : link:{iconImage-url}/spring[{iconImage-url}/spring]
+
+
 ==== HATEOAS
 .Official spring guide says as follow.
 ----
@@ -47,7 +80,7 @@ I think Material UI also framework. But, it have higher level than React. It mea
 === AWS
 AWS is the most famous cloud provider. The reason I selected it is that it provides free-tier plan. I need server for deployment and it means I have to pay for it. I have kept almost 10$ more a month by using the free-tier. Thans AWS!
 
-==== ECS
+==== EC2
 ECS is one of services given by AWS. It is kind of VPS(Virtual private server). I used ubuntu 18.04 LTS and I can access it through SSH. It works like general computer.
 
 '''
@@ -94,7 +127,7 @@ Webpack is bundling tool. When you develop frontend, you may make many separated
 
 I tried to use kubernetes, but I couldn't. I hoped to use free tier EC2 instance, 1 CPU, 1GB RAM, and I noticed that is not enough for minikuber requirement. So, I found alternate called link:https://k3s.io/[k3s] which is lightweight kubernetes. Although I finally succeed to access my web page over a web browser, I figured out that server is still too small. It is not enough to run my web service. Though I failed to deploy my site by using kubernetes, I hope to describe how does it work.
 
-==== How does it work?
+==== k3s
 * Install k3s
   ** $ `curl -sfL \https://get.k3s.io | sh -`
 * Set disable features that will not used for me

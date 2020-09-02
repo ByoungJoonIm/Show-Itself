@@ -12,6 +12,4 @@ This page give you full document of this project.
 
 include::{tech}[]
 
-include::{rest-api}[]
-
 include::{release}[]
