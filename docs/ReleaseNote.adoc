@@ -1,7 +1,7 @@
 == ReleaseNote
 
 === v2.1.0
-* Merged rest api docs to technicalStack.
+* Merged Rest API docs to technicalStack.
 * Added links at each card.
 * Each card can provide each doc location.
 
