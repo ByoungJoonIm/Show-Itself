@@ -17,7 +17,9 @@ public class TechnologyCardProcessor implements RepresentationModelProcessor<Ent
     	TechnologyCard technologyCard = resource.getContent();
     	
     	try {
+    		// tag::hateoas[]
         	resource.add(linkTo(methodOn(IconImageController.class).getAnImageWithMediaType(technologyCard.getIconName())).withRel("iconImageLink"));    		
+        	// end::hateoas[]
     	} catch(IOException ioe) {
     		ioe.printStackTrace();;
     	}

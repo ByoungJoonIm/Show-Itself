@@ -103,10 +103,6 @@ class App extends React.Component {
 		client({ method: 'GET', path: '/api/technologyCards' }).done(response => {
 			this.setState({ technologyCards: response.entity._embedded.technologyCards });
 		});
-		client({ method: 'GET', path: '/api/techniqueCards' }).done(response => {
-			this.setState({ techniqueCards: response.entity._embedded.techniqueCards });
-		});
-
 	}
 
 	render() {
@@ -116,7 +112,6 @@ class App extends React.Component {
 				<ToolbarWrapper />
 				<HeroUnitWrapper />
 				<TechnologiesWrapper cardContents={this.state.technologyCards} />
-				<TechniquesWrapper cardContents={this.state.techniqueCards} />
 				<HowItWorksWrapper />
 				<HowK8sWorksWrapper />
 				<FooterWrapper />
@@ -240,18 +235,6 @@ class TechnologiesWrapper extends React.Component {
 		return (
 			<div style={cssStyles.spaceBottom}>
 				<ContentWrapper title="Technologies"
-					description="Try to hover on each card."
-					cardContents={this.props.cardContents} />
-			</div>
-		)
-	}
-}
-
-class TechniquesWrapper extends React.Component {
-	render() {
-		return (
-			<div style={cssStyles.spaceBottom}>
-				<ContentWrapper title="Techniques"
 					description="Try to hover on each card."
 					cardContents={this.props.cardContents} />
 			</div>

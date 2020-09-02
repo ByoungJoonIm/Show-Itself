@@ -2,7 +2,6 @@
 === Design
 * It is not have version at this time.
 * It supports three api as follow
-  ** technique cards
   ** technology cards
   ** iconImages
 * It follows hateoas.
@@ -11,16 +10,12 @@
 :host-name: http://bjdev.site
 :api-url: {host-name}/api
 :technology-url: {api-url}/technologyCards
-:technique-url: {api-url}/techniqueCards
 :iconImage-url: {api-url}/iconImages
 
 end points::
   * [host-name]/api/technologyCards/[card id]
     ** example : link:{technology-url}[{technology-url}]
     ** example : link:{technology-url}/3[{technology-url}/3]
-  * [host-name]/api/techniqueCards/[card id]
-    ** example : link:{technique-url}[{technique-url}]
-    ** example : link:{technique-url}/10[{technique-url}/10]
 +
 --
 .Be carefull

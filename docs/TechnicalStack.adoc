@@ -1,5 +1,5 @@
 :code-dir: ../src/main/java/bjdev/ShowItSelf
-:hateoas: {code-dir}/TechniqueCardProcessor.java
+:hateoas: {code-dir}/TechnologyCardProcessor.java
 
 == Technical Stack
 This session may give you why I selected these tech and how do they work.
