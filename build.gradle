@@ -28,7 +28,8 @@ asciidoctor {
 		'toc': 'left',
 		'toclevels': 4,
 		'icons': 'font',
-		'my-doc' : file('docs')
+		'my-doc' : file('docs'),
+		'docs-images-dir': file('docs/images').absolutePath 
 }
 
 

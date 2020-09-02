@@ -1,5 +1,6 @@
 :code-dir: ../src/main/java/bjdev/ShowItSelf
 :hateoas: {code-dir}/TechniqueCardProcessor.java
+:imagesdir: {docs-images-dir}
 
 == Technical Stack
 This session may give you why I selected these tech and how do they work.
@@ -92,7 +93,7 @@ Webpack is bundling tool. When you develop frontend, you may make many separated
 
 === Kubernetes
 
-- I tried to use kubernetes, but I couldn't. I hoped to use free tier EC2 instance, 1 CPU, 1GB RAM, and I noticed that is not enough for minikuber requirement. So, I found alternate called link:https://k3s.io/[k3s] which is lightweight kubernetes. Although I finally succeed to access my web page over a web browser, I figured out that server is still too small. It is not enough to run my web service. Though I failed to deploy my site by using kubernetes, I hope to describe how does it work.
+I tried to use kubernetes, but I couldn't. I hoped to use free tier EC2 instance, 1 CPU, 1GB RAM, and I noticed that is not enough for minikuber requirement. So, I found alternate called link:https://k3s.io/[k3s] which is lightweight kubernetes. Although I finally succeed to access my web page over a web browser, I figured out that server is still too small. It is not enough to run my web service. Though I failed to deploy my site by using kubernetes, I hope to describe how does it work.
 
 ==== How does it work?
 * Install k3s
@@ -134,3 +135,37 @@ Webpack is bundling tool. When you develop frontend, you may make many separated
 --
 WARNING: your port 80 must be opened.
 --
+
+=== HTTPS
+
+HPPTS is secure HTTP. I needed a certificate to support https and I found Let's Encrypt project. It provides free certificate which can be refreshed for 90 days. I applied it to nginx which works for front-end stack. Although you access as http, it automatically redirect as https including Rest-API. Also I checked secure level at link:https://www.ssllabs.com/ssltest/[SSL Labs] which is recommended by certbot official site. My server offers you TLS1.3 and TLS1.2 only for security. See SSL Report as follow.
+
+image::ssl_report.jpg[]
+
+==== Certbot
+
+It is very easy to apply https if you use certbot. It gets a certificate and applys to your server automatically. Since nginx docker image is based on debian 10, I followed nginx-debian10 instruction. See link:https://certbot.eff.org/[official certbot page].
+
+=== Asciidoctor
+
+Asciidoc is human-friendly-format like markdown. I wanted to separate each doc files and generate integrated file. Since Markdown didn't support a function called 'include', I selected this for document. Separated each doc is integrated at build time. It has different grammar over against markdown, but it is not difficult. I recommend two site as reference.
+
+* link:https://powerman.name/doc/asciidoc[Asciidoc cheat sheet] 
+* link:https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[Asciidoc official doc]
+
+=== Nginx
+
+Nginx is web server like Apache. Normally it is responsible for front-end server and connecting with Web Application Server(WAS). It means that it provides static files and js files. Request workflow is as follow.
+
+. A user requests to server.
+. Nginx gets request and deliver it to WAS. It also offers static files and js files to client directly.
+.. If nginx serve https, a good way to handle http is to guide it to redirect to https. Certbot helps it easy. 
+. WAS handles request such as DB access and return response.
+. Nginx gets WAS's response and passes it to the user.
+
+I would like to share a problem that I was suffered. When I applied https, I met a problem that is shown 'This site is not secure'. I tested my site and figured it out. It was rest-api problem. A client and server are connected as https, but server generated http links in rest api. Not server connected with client directly, but nginx did so. It means WAS doesn't know whether request is based on http or https. A solution that I found was setting X-Forwared-Proto in nginx server. It was header for letting WAS know protocol type. But, it was not enough. WAS also had to allow using x-forwared-proto header. See two file to solve this problem.
+
+* link:https://github.com/ByoungJoonIm/Show-Itself/blob/master/nginx/web.conf[web.conf(nginx server configuration)]
+* link:https://github.com/ByoungJoonIm/Show-Itself/blob/master/src/main/resources/application.properties[application.properties(WAS side configuration)]
+
+
