@@ -42,6 +42,6 @@ public class DatabaseLoader implements CommandLineRunner{
 		this.techniqueCardRepository.save(new TechniqueCard("Webpack", "Wepack makes many static files single js file. Also it optimizes and makes the js file have less size.", "webpack"));
 		this.techniqueCardRepository.save(new TechniqueCard("Github Action", "Build is automatically occurred on Azure which hosted by microsoft Whenever pushed to master branch", "githubaction"));
 		this.techniqueCardRepository.save(new TechniqueCard("K3s", "K3s is lightweight kubernetes.", "k3s"));
-		
+		this.techniqueCardRepository.save(new TechniqueCard("HTTPS", "\'Let's Encrypt is a kind of certificate agency and it provides free certificate.\'", "letsencrypt"));
 	}
 }
