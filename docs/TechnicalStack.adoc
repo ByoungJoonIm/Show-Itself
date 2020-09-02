@@ -1,6 +1,5 @@
 :code-dir: ../src/main/java/bjdev/ShowItSelf
 :hateoas: {code-dir}/TechniqueCardProcessor.java
-:imagesdir: {docs-images-dir}
 
 == Technical Stack
 This session may give you why I selected these tech and how do they work.
@@ -140,7 +139,7 @@ WARNING: your port 80 must be opened.
 
 HPPTS is secure HTTP. I needed a certificate to support https and I found Let's Encrypt project. It provides free certificate which can be refreshed for 90 days. I applied it to nginx which works for front-end stack. Although you access as http, it automatically redirect as https including Rest-API. Also I checked secure level at link:https://www.ssllabs.com/ssltest/[SSL Labs] which is recommended by certbot official site. My server offers you TLS1.3 and TLS1.2 only for security. See SSL Report as follow.
 
-image::ssl_report.jpg[]
+image::https://bjdev.site/images/ssl_report.jpg[]
 
 ==== Certbot
 
