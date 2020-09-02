@@ -1,5 +1,9 @@
 == ReleaseNote
 
+=== v2.0.3
+* Merged two kinds of card to one.
+* Arranged each card.
+
 === v2.0.2
 * [hot fix] Updated image url for ssl_report.
 
