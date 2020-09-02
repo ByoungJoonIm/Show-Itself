@@ -24,7 +24,7 @@ else
         docker stop web >> $LOG
         docker rm web >> $LOG
         echo "docker running..."
-        docker run -it -d -p 80:80 --name web $NEW_IMAGE >> $LOG
+	docker run -it -d --network deployment --name web $NEW_IMAGE >> $LOG
         echo "docker rmi..."
         docker rmi $OLD_IMAGE >> $LOG
         echo "complete!"

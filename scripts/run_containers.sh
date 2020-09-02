@@ -8,9 +8,9 @@ NGINX_CONF_PATH=/etc/nginx/conf.d
 NGINX_STATIC_PATH=/static/public
 WEB_IMAGE_NAME=ibjsw/show-itself:release-`git describe --tags`
 
-docker network create deployment
+#docker network create deployment
 
-docker run -it -d --network deployment --name web $WEB_IMAGE_NAME
+#docker run -it -d --network deployment --name web $WEB_IMAGE_NAME
 docker run -it -d \
 	--network deployment \
 	--name nginx \
