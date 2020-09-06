@@ -32,15 +32,8 @@ cd Show-Itself
 bash entrypoint.sh
 ```
 
-## Why this site was maded?
-```
-One day after graduating, I noticed that I don't know current technologies such as
-spring, react and so on. I studied basic computer theories only like OS and DB.
-So I decided to test myself by learning new things and hoped to understand what they are.
-Almost technologies which used this project are not friendly at this time,
-but I'm sure that this would be best practice.
-I have referred to offical site for each technology and technique.
-```
+## Note
+- This project is stopped temporarily. It will restart after recruitment season.
 
 ## Let me know
 - If something is wrong, let me know or just pull request.
